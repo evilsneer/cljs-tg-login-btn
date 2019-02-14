@@ -1,5 +1,7 @@
 # cljs-tg-login-btn
 
+[![Clojars Project](https://img.shields.io/clojars/v/cljs-tg-login-btn.svg)](https://clojars.org/cljs-tg-login-btn)
+
 A Clojure library designed to provide Telegram login button for ClojureScript Reagent users
 
 ## Usage
