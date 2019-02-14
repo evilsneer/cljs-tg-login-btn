@@ -20,22 +20,15 @@
   (let [onload #(reset! is-active-atom true)
         observer (js/MutationObserver. (fn [mutations]
                                          (doseq [mutation mutations]
-                                           (case (aget mutation "type")
-                                             "childList" (let [added-nodes (.. mutation -addedNodes)
-                                                               added-node (.item added-nodes 0)
-                                                               added-tagname (.-tagName added-node)]
-                                                           (case added-tagname
-                                                             "IFRAME" (do
-                                                                        (println "Iframe added")
-                                                                        (js/console.log added-node added-tagname)
-                                                                        ;(println "adding iframe load listener")
-                                                                        (.addEventListener added-node "load" onload)
-                                                                        ;(onload)
-                                                                        )
-                                                             ;(println "another tag added")
-                                                             ))
-                                             ;(println "another mutation happened")
-                                             ))))]
+                                           (if (= "childList" (aget mutation "type"))
+                                             (let [added-nodes (.. mutation -addedNodes)
+                                                   added-node (.item added-nodes 0)
+                                                   added-tagname (.-tagName added-node)]
+                                               (if (= added-tagname "IFRAME")
+                                                 (do
+                                                   (println "Iframe added")
+                                                   (js/console.log added-node added-tagname)
+                                                   (.addEventListener added-node "load" onload))))))))]
     (reagent.core/create-class {:component-did-mount    (fn []
                                                           (let [element (.getElementById js/document "tg-login-fieldset")
                                                                 attributes (js-obj "attributeFilter" ["class"] "childList" true "subtree" true)]
