@@ -10,11 +10,9 @@
      :data-telegram-login "emptyonedishauth_bot"
      :data-size           "medium"
      :data-userpic        "false"
-     :data-onauth         (str callback-name "(user)") "lovesexface.telegram_auth.onTelegramAuth(user)"
+     :data-onauth         (str callback-name "(user)")
                           :data-radius         "5"
-                          :parent-sel          :#tg-login-fieldset}
-    )
-  )
+                          :parent-sel          :#tg-login-fieldset}))
 
 (defn telegram-btn [is-active-atom callback-name]
   (let [observer (js/MutationObserver. (fn [mutations]
