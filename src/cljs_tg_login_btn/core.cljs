@@ -10,7 +10,7 @@
      :data-telegram-login "emptyonedishauth_bot"
      :data-size           "medium"
      :data-userpic        "false"
-     :data-onauth         (str callback-name "(user)")      ;"lovesexface.telegram_auth.onTelegramAuth(user)"
+     :data-onauth         (str callback-name "(user)")
      :data-radius         "5"
      :parent-sel          :#tg-login-fieldset}
     )
@@ -31,7 +31,10 @@
                                                    (.addEventListener added-node "load" onload))))))))]
     (reagent.core/create-class {:component-did-mount    (fn []
                                                           (let [element (.getElementById js/document "tg-login-fieldset")
-                                                                attributes (js-obj "attributeFilter" ["class"] "childList" true "subtree" true)]
+                                                                attributes (js-obj
+                                                                             "attributeFilter" ["class"]
+                                                                             "childList" true
+                                                                             "subtree" true)]
                                                             (.observe observer element attributes)
                                                             ;(println "Tg Button Observer added")
                                                             )

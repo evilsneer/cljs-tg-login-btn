@@ -1,14 +1,34 @@
 # cljs-tg-login-btn
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to provide Telegram login button for ClojureScript Reagent users
 
 ## Usage
 
-FIXME
+```clojure
+(ns app.core
+  (:require [cljs-tg-login-btn.core :refer [telegram-btn]]))
+
+; callback function 
+;; login is written somewhere else
+(defn ^:export onTelegramAuth [user]
+  (let [username (.-username user)
+        id (.-id user)]
+    (login username)))
+    
+; tg-login-avalible turns true when telegram button will be successfully loaded
+(defn page []
+  (let [tg-login-avalible (atom false)]
+    (fn []
+      [:div.bs-component
+       [:div {:hidden (not @tg-login-avalible)}
+         [telegram-btn tg-login-avalible "app.core.onTelegramAuth"]]])))
+         
+;and blabla reagent render stuff
+```
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 Vladislav Shishkov
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
