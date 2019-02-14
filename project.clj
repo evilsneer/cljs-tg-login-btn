@@ -6,5 +6,7 @@
   :plugins [[lein-git-deps "0.0.1-SNAPSHOT"]]
   :git-dependencies [["https://github.com/evilsneer/cljs-add-script.git" "8dd3c9ea165af4bdd43fa9d1c01e18c017ab5192"]]
   :dependencies [[org.clojure/clojure "1.9.0"]
+                 [org.clojure/clojurescript "1.10.439"
+                  :scope "provided"]
                  [reagent "0.8.1"]]
   :repl-options {:init-ns cljs-tg-login-btn.core})
