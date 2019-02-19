@@ -1,4 +1,4 @@
-(defproject cljs-tg-login-btn "0.1.0"
+(defproject cljs-tg-login-btn "0.1.1-SNAPSHOT"
   :description "Telegram login button for ClojureScript Reagent users"
   :url "https://github.com/evilsneer/cljs-tg-login-btn"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
