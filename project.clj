@@ -7,7 +7,7 @@
                  [org.clojure/clojurescript "1.10.439"
                   :scope "provided"]
                  [reagent "0.8.1"]
-                 [cljs-add-script "0.1.0-SNAPSHOT"]]
+                 [cljs-add-script "0.1.0"]]
   :repl-options {:init-ns cljs-tg-login-btn.core}
 
   ;:aliases {"test" ^{:doc "Clean and Test"}
